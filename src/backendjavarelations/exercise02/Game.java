@@ -1,5 +1,6 @@
 package backendjavarelations.exercise02;
 
+import colors.ConsoleColors;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -40,25 +41,30 @@ public class Game {
             start:
             while (true) {                
                 for (Player player : players) {
-                    System.out.println(player + " disparando...");
+                    System.out.println(ConsoleColors.CYAN + player + ConsoleColors.RESET + " disparando...");
 
-                    Thread.sleep(700);
+                    Thread.sleep(1000);
                     for (int i = 0; i < 3; i++) {
                         System.out.print(".");
-                        Thread.sleep(700);
+                        Thread.sleep(1000);
                     }
                     System.out.println();
 
                     if (player.shot(revolver)) {
-                        System.out.println("¡Mojado!");
-                        System.out.println(player + " ha perdido.");
+                        System.out.println(ConsoleColors.RED_BOLD + "¡Pum!" + ConsoleColors.RESET);
+                        Thread.sleep(500);
+                        System.out.println(ConsoleColors.RED_BOLD + "¡Mojado!\n" + ConsoleColors.RESET);
+                        System.out.println(player + " ha perdido.\n");
                         System.out.println("¿Comenzar nuevamente (S/N)?");
                         if (sc.next().equalsIgnoreCase("n"))
                             break game;
                         else
                             break start;
                     } else {
-                        System.out.println("Nada sucede.");
+                        System.out.println("...");
+                        Thread.sleep(500);
+                        System.out.println(ConsoleColors.YELLOW + "Nada sucede.\n" + ConsoleColors.RESET);
+                        Thread.sleep(500);
                         System.out.println("Siguiente jugador.");
                         revolver.nextPosition();
                     }
