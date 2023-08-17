@@ -19,9 +19,7 @@ public class Revolver {
     }
     
     public void nextPosition() {
-        if (position == CHAMBERS-1)
-            position = 0;
-        else
-            position++;
+        position = ++position % CHAMBERS;
     }
+    
 }
