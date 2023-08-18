@@ -65,9 +65,7 @@ public class Deck {
             System.out.println("No hay suficientes cartas.");
         else
             for (int i = 0; i < quantity; i++) {
-                System.out.println(cards.peek());
-                discardedCards.add(cards.getFirst());
-                cards.pop();
+                nextCard();
             }
     }
     
