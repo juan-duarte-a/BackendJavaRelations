@@ -19,6 +19,8 @@ public class Game {
     public void initialize() {
         int numberOfPlayers;
 
+        System.out.println(ConsoleColors.BLUE_BACKGROUND + "**** RULETA RUSA (de agua) ****" + ConsoleColors.RESET + "\n");
+        
         while (true) {            
             System.out.print("Cantidad de jugadores (2-6) -> ");
             numberOfPlayers = sc.nextInt();
