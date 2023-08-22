@@ -29,7 +29,7 @@ public class Seat {
 
     @Override
     public String toString() {
-        return "" + number + letter;
+        return String.valueOf(number) + letter + " " + (occupied ? "X" : " ");
     }
     
 }
