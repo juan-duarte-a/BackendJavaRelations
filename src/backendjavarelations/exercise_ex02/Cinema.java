@@ -25,12 +25,12 @@ public class Cinema {
 
     public Cinema() {
         moviegoerService = new MoviegoerService();
-        movieService = new MovieService();
-        movieService.loadMovies();
         seatService = new SeatService();
+        movieService = new MovieService();
     }
     
     private void initializeCinema() {
+        movieService.loadMovies();
         movieInBillboard = movieService.getRandomMovie();
         ticketPrice = (int) (Math.random() 
                 * (MAX_TICKET_PRICE - MIN_TICKET_PRICE)) + MIN_TICKET_PRICE;
@@ -53,11 +53,11 @@ public class Cinema {
     
     public void showCinemaStatus() {
         System.out.println("Presentando: " + movieInBillboard);
-        System.out.println("Valor de entrada: $" + ticketPrice + "\n");
+        System.out.printf("Valor de entrada: $%d%n%n", ticketPrice);
         seatService.showSeats();
         System.out.println();
         System.out.println("Tasa de ocupación de asientos: " 
-                + (new DecimalFormat("0.0%")).format(seatService.occupationRate()) + "%");
+                + (new DecimalFormat("0.0%")).format(seatService.occupationRate()));
     }
     
 }
